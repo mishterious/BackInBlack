@@ -1,3 +1,23 @@
-<p>
-  all works!
-</p>
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h2>These pets are looking for a home!</h2>
+  <a [routerLink]="['/add']" >Add a pet to the shelter</a>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>  
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let pet of pets">
+      <td>{{ pet.name }}</td>
+      <td>{{ pet.animal_type}}</td>
+      <td> 
+        <button [routerLink]="['/details/', pet._id , pet.name]">DETAILS</button> 
+        <button [routerLink]="['/edit/', pet._id , pet.name]">EDIT</button> 
+      </td>
+    </tr>
+
+  </table>
+
+
+<router-outlet></router-outlet> 
