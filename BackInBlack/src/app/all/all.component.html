@@ -4,24 +4,27 @@
 
 
 <div style="text-align:center">
-  <h2>These pets are looking for a home!</h2>
-  <a [routerLink]="['/add']" >Add a pet to the shelter</a>
+  <h2>Welcome to Problem Solving 101! </h2>
+  <button [routerLink]="['/add']" >New Restaurant</button>
   <table>
     <tr>
-      <th>Name</th>
-      <th>Type</th>  
-      <th>Actions</th>
+      <th>Restaurant</th>
+      <th>Cusine</th>  
+      <th>Actions available</th>
     </tr>
-    <tr *ngFor="let pet of pets">
-      <td>{{ pet.name }}</td>
-      <td>{{ pet.animal_type}}</td>
+    <tr *ngFor="let rest of rests">
+      <td>{{ rest.name }}</td>
+      <td>{{ rest.cuisine}}</td>
       <td> 
-        <button [routerLink]="['/details/', pet._id , pet.name]">DETAILS</button> 
-        <button [routerLink]="['/edit/', pet._id , pet.name]">EDIT</button> 
+        <button [routerLink]="['/reviews/', rest._id , rest.name]">Read reviews</button> 
+        <button [routerLink]="['/edit/', rest._id , rest.name]">EDIT</button>
+      
+        <p *ngIf="(rest.createdAt )"> <button (click)="deleteByID(rest._id)">DELETE</button></p>
       </td>
     </tr>
 
   </table>
 
+  <app-edit [myID]="rests[0]._id"></app-edit>
 
 <router-outlet></router-outlet> 

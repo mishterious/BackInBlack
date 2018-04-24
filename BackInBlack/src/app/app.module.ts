@@ -12,8 +12,9 @@ import { AppComponent } from './app.component';
 import { AllComponent } from './all/all.component';
 import { AddComponent } from './add/add.component';
 import { DetailsComponent } from './details/details.component';
-import { EditComponent } from './edit/edit.component';
-
+import { EditComponent } from './all/edit/edit.component';
+import { ReviewsComponent } from './reviews/reviews.component';
+import { WriteComponent } from './write/write.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { EditComponent } from './edit/edit.component';
     AllComponent,
     AddComponent,
     DetailsComponent,
-    EditComponent
+    EditComponent,
+    ReviewsComponent,
+    WriteComponent
   ],
   imports: [
     BrowserModule,

@@ -2,22 +2,18 @@
 
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h2>Know of a pet needing a home?</h2>
+  <h2>Know of a rest needing a home?</h2>
 
-  <p>{{ error }}</p>
+  <p *ngIf="(error)">{{ error.message }}</p>
+  <p *ngIf="(error)">{{ error.errmsg }}</p>
+  
   <a [routerLink]="['/']" >Home</a>
 
   <h4></h4>
   <form (submit)="onSubmit()">
-    <p> {{ pet | json }} </p>
-    <h3> Pet Name: <input type="text" name="pet.name" [(ngModel)]="pet.name" placeholder="Pet's Name"></h3>
-    <h3> Pet type: <input type="text" name="pet.animal_type" [(ngModel)]="pet.animal_type" placeholder="Animal Type"></h3>
-    <h3> Description: <input type="text" name="pet.description" [(ngModel)]="pet.description" placeholder="Description"></h3>
-    <h3> Skills: 
-      <h4> Skill 1: <input type="text" name="pet.skill1" [(ngModel)]="pet.skill1" placeholder="Show us their skills "></h4>
-      <h4>Skill 2: <input type="text" name="pet.skill2" [(ngModel)]="pet.skill2" ></h4>
-      <h4>Skill 3: <input type="text" name="pet.skill3" [(ngModel)]="pet.skill3" ></h4>
-    </h3>
+    <p> {{ rest | json }} </p>
+    <h3> Restaurant Name: <input type="text" name="rest.name" [(ngModel)]="rest.name" placeholder="Rest's Name"></h3>
+    <h3> Cuisine: <input type="text" name="rest.cuisine" [(ngModel)]="rest.cuisine" placeholder="Rest cuisine"></h3>
     <button type="submit">Submit</button>
   </form>
   <button [routerLink]="['/']" >Cancel</button> 

@@ -5,13 +5,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { AllComponent } from './all/all.component';
 import { AddComponent } from './add/add.component';
 import { DetailsComponent } from './details/details.component';
-import { EditComponent } from './edit/edit.component';
+import { ReviewsComponent } from './reviews/reviews.component';
+import { WriteComponent } from './write/write.component';
+
+
 
 const routes: Routes = [
   { path: 'all', component: AllComponent},
   { path: 'add', component: AddComponent},
   { path: 'details/:id/:name', component: DetailsComponent},
-  { path: 'edit/:id/:name', component: EditComponent},
+  { path: 'reviews/:id/:name', component: ReviewsComponent},
+  { path: 'write/:id/:name', component: WriteComponent},
   { path: '**', component: AllComponent }
 ];
 

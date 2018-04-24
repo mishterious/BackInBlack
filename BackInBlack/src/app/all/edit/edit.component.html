@@ -1,0 +1,19 @@
+
+
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+    {{ error }}
+    {{ rests }}
+    <a [routerLink]="['/all']" >Home</a>
+    <h4 style="color: red;">{{ error }}</h4>
+    <h4>Edit this restaurant:</h4>
+    <form (submit)="edit(_id)">
+      <p> {{ rest | json }} </p>
+      <h3> Restaurant Name: <input type="text" name="rest.name" [(ngModel)]="rest.name" placeholder="Restaurant's Name"></h3>
+      <h3> Cuisine type: <input type="text" name="rest.cuisine" [(ngModel)]="rest.cuisine" placeholder="Cuisine Type"></h3>
+      <button type="submit">Edit</button>
+    </form>
+    <button [routerLink]="['/']">Cancel</button>
+</div>
+<router-outlet></router-outlet> 
+  

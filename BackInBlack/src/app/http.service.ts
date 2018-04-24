@@ -7,8 +7,8 @@ export class HttpService {
 
   constructor(private _http: HttpClient) { }
 
-  pets(){
-    return this._http.get('/pets');
+  rest(){
+    return this._http.get('/rests');
   }
 
   by(id){
@@ -19,11 +19,13 @@ export class HttpService {
       return this._http.get('/byName/'+name);
   }
 
-  create(pet){
-      return this._http.post('/create', pet);
+  create(rest){
+      return this._http.post('/create', rest);
   }
 
   edit(id, newTask){
+      console.log("====================================")
+      console.log(newTask);
       return this._http.post('/edit/'+id, newTask);
   }
 
@@ -31,20 +33,20 @@ export class HttpService {
       return this._http.delete('/delete/'+id);
   }
 
-  quotesBy(id){
-      return this._http.get('/quotesBy/'+id);
+  // quotesBy(id){
+  //     return this._http.get('/quotesBy/'+id);
+  // }
+
+  addReview(id, reviews){
+      return this._http.put('/addReview/'+id, reviews);
   }
 
-  addQuote(id, quote){
-      return this._http.put('/addQuote/'+id, quote);
-  }
+  // updateRank(id, rank){
+  //     return this._http.put('/like/'+id, rank);
+  // }
 
-  updateRank(id, rank){
-      return this._http.put('/like/'+id, rank);
-  }
-
-  changeRank(quote_id, rank){
-      return this._http.put('/update/'+quote_id, rank);
-  }
+  // changeRank(quote_id, rank){
+  //     return this._http.put('/update/'+quote_id, rank);
+  // }
 
 }

@@ -8,7 +8,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   styleUrls: ['./all.component.css']
 })
 export class AllComponent implements OnInit {
-  pets : any;
+  rests : any;
 
   constructor(
     private _httpService: HttpService, 
@@ -17,14 +17,15 @@ export class AllComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getPets();
+    this.getRest();
   }
 
-  getPets(){
-    let observable = this._httpService.pets()
+  getRest(){
+    let observable = this._httpService.rest()
     observable.subscribe(data => 
       {
-        this.pets = data;
+        console.log(data);
+        this.rests = data;
       })
 
   }
@@ -33,9 +34,18 @@ export class AllComponent implements OnInit {
     console.log(_id);
     let tempObservable = this._httpService.by(_id);
     tempObservable.subscribe(data => {
-      this.pets = data;
+      this.rests = data;
       console.log(data);
     })
+  }
+
+  deleteByID(_id){
+    // console.log(_id);
+    let tempObservable = this._httpService.deleteByID(_id);
+    tempObservable.subscribe(data => {
+      console.log(data+ "345678765432123456789765432");
+    })
+    this.getRest();
   }
 
 }

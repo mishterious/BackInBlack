@@ -8,7 +8,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   styleUrls: ['./add.component.css']
 })
 export class AddComponent implements OnInit {
-  pet: any;
+  rest: any;
   _id: any;
   skills: any;
   name: any;
@@ -21,20 +21,20 @@ export class AddComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.pet = { name: " ", animal_type: " ", description: " ", skill1: " ", skill2: "", skill3:" "};
+    this.rest = { name: " ", cuisine: " "};
     this._route.params.subscribe((params: Params) => this._id = params['id']);
   }
 
   byName(name){
-    let tempObservable = this._httpService.byName(this.pet.name)
+    let tempObservable = this._httpService.byName(this.rest.name)
     tempObservable.subscribe(data => {
-      this.pet = data;
-      this.error = this.pet+" ALREADY EXIST!!!!"
-      console.log(this.pet + " ALREADY EXIST!!!!")
-      if(!this.pet){
+      this.rest = data;
+      this.error = this.rest+" ALREADY EXIST!!!!"
+      console.log(this.rest + " ALREADY EXIST!!!!")
+      if(!this.rest){
         this.onSubmit()
       }else{
-        this.error = "This Pet is already here!";
+        this.error = "This Rest is already here!";
         this._router.navigate(['/new']);
       }
     })
@@ -42,8 +42,8 @@ export class AddComponent implements OnInit {
 
   onSubmit() {
     
-    console.log(this.pet);
-    let tempObservable = this._httpService.create(this.pet)
+    console.log(this.rest);
+    let tempObservable = this._httpService.create(this.rest)
     tempObservable.subscribe(data => {
 
       if((data as any).message == "Unique Error"){
