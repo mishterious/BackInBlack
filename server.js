@@ -63,7 +63,7 @@ mongoose.Promise = global.Promise;
 
 //All the Views and Logic 
 app.get('/pets', function(req, res){
-    Pet.find({}).sort('-createdAt').exec(function(err, result){
+    Pet.find({}).sort('-animal_type').exec(function(err, result){
         if(err){
             myerr = { error: "==== there is an error! ====="};
             console.log(err);
@@ -136,13 +136,17 @@ app.post('/create', function(req, res){
     pet.save(function(err, result){
         console.log("are we here?")
         if(err){
-            console.log('==== there is an error! =====')
-            console.log(err);
-            res.json(err)
-        }else{
+            if(err.name == "BulkWriteError"){
+                res.json({message: "Unique Error", error: err});
+            }
+            else {
+                res.json({message: "Error", error: err});
+            }
+        }
+        else{
             console.log('==== Seeing all users successfully === ')
             console.log(result);
-            res.json(result)
+            res.json({message: "Add Pet", data: pet});
         }
     });
 });

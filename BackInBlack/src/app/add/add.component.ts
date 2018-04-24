@@ -41,18 +41,23 @@ export class AddComponent implements OnInit {
   }
 
   onSubmit() {
-
-    // this.byName(this.pet.name);
-
     
     console.log(this.pet);
     let tempObservable = this._httpService.create(this.pet)
     tempObservable.subscribe(data => {
-      // console.log("See this particular user", data );
-      this.pet = data;
-      console.log("==========32454321345=======================" + data)
-      console.log(this.pet);
-    })
-    this._router.navigate(['/all']);  
+
+      if((data as any).message == "Unique Error"){
+        this.error = data["error"];
+      }
+      else if((data as any).message == "Error"){
+        // console.log("See this particular user", data );
+        this.error = data["error"];
+        console.log("==========32454321345=======================" + data)
+        console.log(this.error);
+      }
+      else{
+        this._router.navigate(['/all']); 
+      }
+    });   
   }
 }
