@@ -33,20 +33,8 @@ export class HttpService {
       return this._http.delete('/delete/'+id);
   }
 
-  // quotesBy(id){
-  //     return this._http.get('/quotesBy/'+id);
-  // }
-
   addReview(id, reviews){
       return this._http.put('/addReview/'+id, reviews);
   }
-
-  // updateRank(id, rank){
-  //     return this._http.put('/like/'+id, rank);
-  // }
-
-  // changeRank(quote_id, rank){
-  //     return this._http.put('/update/'+quote_id, rank);
-  // }
 
 }

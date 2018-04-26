@@ -2,7 +2,7 @@
 
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h2>Let's eat!</h2>
+  <h2>Let's eat!!!!</h2>
   {{ error }}
   <p *ngIf="(error)">{{ error.message }}</p>
   <p *ngIf="(error)">{{ error.errmsg }}</p>
@@ -11,22 +11,18 @@
 
   <form (submit)="addReview()">
     <p> {{ rest | json }} </p>
-    <h3> Your Name: <input type="text" name="rest.customur" [(ngModel)]="rest.customur" placeholder="You Name"></h3>
-    <select name="rest.stars" ng-model="rest.stars">
+    <h3> Your Name: <input type="text" name="rest.customer" [(ngModel)]="rest.customer" placeholder="You Name"></h3>
+    <select name="rest.stars" [(ngModel)]="rest.stars">
       <option value="5">5 Star</option>
       <option value="4">4 Star</option>
       <option value="3">3 Star</option>
       <option value="2">2 Star</option>
       <option value="1">1 Star</option>
     </select>
-    <h3> Your review: <input type="text" name="rest.description" [(ngModel)]="rest.description" placeholder="You'r Reviews"></h3>
+    <h3> Your review: <input type="text" name="rest.description" [(ngModel)]="rest.description" placeholder="You're Reviews"></h3>
     <button type="submit">Submit</button>
   </form>
 
-  <form (submit)="addReview()">
-      <h3> Your Name: <input type="text" name="rest.customur" [(ngModel)]="rest.customur" placeholder="You Name"></h3>
-      <button type="submit">Submit</button>
-  </form>
 
   <button [routerLink]="['/all']" >Cancel</button> 
 

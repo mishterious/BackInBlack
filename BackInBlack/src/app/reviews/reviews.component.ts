@@ -32,9 +32,25 @@ export class ReviewsComponent implements OnInit {
     // console.log(_id);
     let tempObservable = this._httpService.by(_id);
     tempObservable.subscribe(data => {
+      // data['messages']['stars'].sort();
+      function compare(a, b){
+        const starta = a.stars
+        const startb = b.stars
 
-      this.rest = data;
+        let comparison = 0;
+        if(starta > startb){
+          comparison = -1;
+        } else if (starta < startb){
+          comparison = 1;
+        }
+        return comparison;
+      }
+
+      console.log(data);
+      data['messages'].sort(compare);
+      this.rest = data
       console.log(this.rest);
+
     })
   }
 

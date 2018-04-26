@@ -60,7 +60,7 @@ mongoose.Promise = global.Promise;
 
 //All the Views and Logic 
 app.get('/rests', function(req, res){
-    Rest.find({}, function(err, result){
+    Rest.find({}).sort('-createdAt').exec(function(err, result){
         if(err){
             myerr = { error: "==== there is an error! ====="};
             console.log(err);
@@ -74,7 +74,7 @@ app.get('/rests', function(req, res){
 
 
 app.get('/reviews', function(req, res){
-    Rest.find({}).sort('-messages.stars').exec(function(err, result){
+    Rest.find({}).sort('-createdAt').exec(function(err, result){
         if(err){
             myerr = { error: "==== there is an error! ====="};
             console.log(err);
@@ -91,7 +91,7 @@ app.get('/reviews', function(req, res){
 
 app.get('/by/:id', function(req, res){
     console.log("INSIDE OF ID");
-    Rest.findOne({_id: req.params.id}).sort('-messages.stars').exec(function(err, result){
+    Rest.findOne({_id: req.params.id}).sort("-createdAt").exec(function(err, result){
         if(err){
             console.log('==== there is an error! =====')
             console.log(err);
@@ -197,7 +197,7 @@ app.get('/quotesBy/:id', function(req, res){
 app.put('/addReview/:id', function(req, res){
     var newRest = req.body;
 
-    Rest.update({_id: req.params.id}, { $push: {messages: { customer: newRest.customer, stars: newRest.stars, description:description }}}, function(err, rest){
+    Rest.update({_id: req.params.id}, { $push: {messages: { customer: newRest.customer, stars: newRest.stars, description: newRest.description }}}, function(err, rest){
         if(err){
             console.log('==== there is an error! =====')
             console.log(err);

@@ -2,28 +2,27 @@
 
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-    {{ error }}
-    {{ customers }}
-    <a [routerLink]="['/all']" >Home</a>
-    <h4 style="color: red;">{{ error }}</h4>
-    <h2>Let's eat! :</h2>
-    <p>Reviews for {{ rest.name }}</p>
-    <button [routerLink]="['/write/', rest._id , rest.name]">Read reviews</button>
-    <p> {{ rest | json }} </p>
-    <table>
-      <tr>
-        <th>Customer</th>
-        <th>Stars</th>  
-        <th>Description</th>
-      </tr>
-      <tr *ngFor="let rest of rest.messages">
-        <td>{{ rest.customer }}</td>
-        <td>{{ rest.stars}}</td>
-        <td>{{ rest.description }} </td>
-      </tr>
-  
-    </table>
-    
+  {{ error }}
+  {{ customers }}
+  <a [routerLink]="['/all']" >Home</a>
+  <h4 style="color: red;">{{ error }}</h4>
+  <h2>Let's eat! :</h2>
+  <p>Reviews for {{ rest.name }}</p>
+  <button [routerLink]="['/rewrite/', rest._id , rest.name]">Read reviews</button>
+  <p> {{ rest | json }} </p>
+  <table>
+    <tr>
+      <th>Customer</th>
+      <th>Stars</th>  
+      <th>Description</th>
+    </tr>
+    <tr *ngFor="let rest of rest.messages">
+      <td>{{ rest.customer }}</td>
+      <td>{{ rest.stars}}</td>
+      <td>{{ rest.description }} </td>
+    </tr>
+
+  </table>
+
 </div>
 <router-outlet></router-outlet> 
-  

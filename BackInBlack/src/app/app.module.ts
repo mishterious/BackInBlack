@@ -15,6 +15,7 @@ import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './all/edit/edit.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { WriteComponent } from './write/write.component';
+import { RewriteComponent } from './rewrite/rewrite.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { WriteComponent } from './write/write.component';
     DetailsComponent,
     EditComponent,
     ReviewsComponent,
-    WriteComponent
+    WriteComponent,
+    RewriteComponent
   ],
   imports: [
     BrowserModule,

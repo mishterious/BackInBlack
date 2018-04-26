@@ -7,6 +7,7 @@ import { AddComponent } from './add/add.component';
 import { DetailsComponent } from './details/details.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { WriteComponent } from './write/write.component';
+import { RewriteComponent } from './rewrite/rewrite.component';
 
 
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'details/:id/:name', component: DetailsComponent},
   { path: 'reviews/:id/:name', component: ReviewsComponent},
   { path: 'write/:id/:name', component: WriteComponent},
+  { path: 'rewrite/:id/:name', component: RewriteComponent},
   { path: '**', component: AllComponent }
 ];
 
